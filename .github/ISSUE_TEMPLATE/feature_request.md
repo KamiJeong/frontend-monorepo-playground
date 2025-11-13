@@ -1,40 +1,40 @@
 ---
-name: Feature Request
-about: Suggest an idea for this project
+name: 기능 요청
+about: 이 프로젝트를 위한 아이디어를 제안해주세요
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
 ---
 
-## Feature Description
-<!-- A clear and concise description of the feature you'd like to see -->
+## 기능 설명
+<!-- 제안하고 싶은 기능에 대해 명확하고 간결하게 설명해주세요 -->
 
-## Problem Statement
-<!-- Is your feature request related to a problem? Please describe. -->
-<!-- Example: I'm always frustrated when [...] -->
+## 문제 상황
+<!-- 이 기능 요청이 문제와 관련이 있나요? 설명해주세요 -->
+<!-- 예시: [...] 할 때 항상 불편함을 느낍니다 -->
 
-## Proposed Solution
-<!-- Describe the solution you'd like -->
+## 제안하는 솔루션
+<!-- 원하는 솔루션을 설명해주세요 -->
 
-## Alternatives Considered
-<!-- Describe any alternative solutions or features you've considered -->
+## 고려한 대안
+<!-- 고려했던 대안 솔루션이나 기능을 설명해주세요 -->
 
-## Use Cases
-<!-- Describe how this feature would be used -->
+## 사용 사례
+<!-- 이 기능이 어떻게 사용될지 설명해주세요 -->
 1. 
 2. 
 3. 
 
-## Benefits
-<!-- What are the benefits of implementing this feature? -->
+## 이점
+<!-- 이 기능을 구현하면 얻을 수 있는 이점은 무엇인가요? -->
 - 
 - 
 
-## Implementation Considerations
-<!-- Optional: Any technical considerations or concerns -->
+## 구현 시 고려사항
+<!-- 선택사항: 기술적 고려사항이나 우려사항을 작성해주세요 -->
 
-## Additional Context
-<!-- Add any other context, mockups, or screenshots about the feature request here -->
+## 추가 정보
+<!-- 기능 요청에 대한 추가 정보, 목업, 스크린샷을 추가해주세요 -->
 
-## Related Issues/PRs
-<!-- Link to any related issues or pull requests -->
+## 관련 이슈/PR
+<!-- 관련된 이슈나 풀 리퀘스트를 링크해주세요 -->

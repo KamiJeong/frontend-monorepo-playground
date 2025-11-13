@@ -1,40 +1,40 @@
 ---
-name: Bug Report
-about: Create a report to help us improve
+name: 버그 리포트
+about: 개선을 위한 버그 리포트를 작성해주세요
 title: '[BUG] '
 labels: bug
 assignees: ''
 ---
 
-## Bug Description
-<!-- A clear and concise description of what the bug is -->
+## 버그 설명
+<!-- 발생한 버그에 대한 명확하고 간결한 설명을 작성해주세요 -->
 
-## Steps to Reproduce
-<!-- Steps to reproduce the behavior -->
-1. Go to '...'
-2. Click on '...'
-3. Scroll down to '...'
-4. See error
+## 재현 단계
+<!-- 버그를 재현하기 위한 단계를 작성해주세요 -->
+1. '...'로 이동
+2. '...'를 클릭
+3. '...'로 스크롤
+4. 에러 확인
 
-## Expected Behavior
-<!-- A clear and concise description of what you expected to happen -->
+## 예상 동작
+<!-- 예상했던 동작에 대해 명확하고 간결하게 설명해주세요 -->
 
-## Actual Behavior
-<!-- What actually happened -->
+## 실제 동작
+<!-- 실제로 발생한 동작을 설명해주세요 -->
 
-## Screenshots
-<!-- If applicable, add screenshots to help explain your problem -->
+## 스크린샷
+<!-- 가능하다면, 문제를 설명하는 스크린샷을 추가해주세요 -->
 
-## Environment
-<!-- Please complete the following information -->
-- **OS**: [e.g., Windows 10, macOS 14, Ubuntu 22.04]
-- **Browser**: [e.g., Chrome 120, Firefox 121, Safari 17]
-- **Node Version**: [e.g., 18.17.0]
-- **Package Manager**: [e.g., yarn 4.11.0]
-- **Affected Package/App**: [e.g., @repo/ui, apps/docs]
+## 환경
+<!-- 다음 정보를 작성해주세요 -->
+- **OS**: [예: Windows 10, macOS 14, Ubuntu 22.04]
+- **브라우저**: [예: Chrome 120, Firefox 121, Safari 17]
+- **Node 버전**: [예: 18.17.0]
+- **패키지 매니저**: [예: yarn 4.11.0]
+- **영향받은 패키지/앱**: [예: @repo/ui, apps/docs]
 
-## Additional Context
-<!-- Add any other context about the problem here -->
+## 추가 정보
+<!-- 문제에 대한 추가 정보를 작성해주세요 -->
 
-## Possible Solution
-<!-- Optional: suggest a fix or reason for the bug -->
+## 해결 방안 제안
+<!-- 선택사항: 버그 수정 방안이나 원인에 대한 제안을 작성해주세요 -->

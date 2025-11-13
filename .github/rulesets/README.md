@@ -1,55 +1,55 @@
-# How to Apply Repository Rulesets
+# 저장소 룰셋 적용 방법
 
-The ruleset JSON files in this directory serve as configuration templates. To apply them to your GitHub repository, follow these steps:
+이 디렉토리의 룰셋 JSON 파일들은 설정 템플릿으로 사용됩니다. GitHub 저장소에 적용하려면 다음 단계를 따르세요:
 
-## Applying Rulesets via GitHub UI
+## GitHub UI를 통한 룰셋 적용
 
-1. **Navigate to Repository Settings**
-   - Go to your repository on GitHub
-   - Click on **Settings** tab
-   - Select **Rules** → **Rulesets** from the left sidebar
+1. **저장소 설정으로 이동**
+   - GitHub에서 저장소로 이동
+   - **Settings** 탭 클릭
+   - 왼쪽 사이드바에서 **Rules** → **Rulesets** 선택
 
-2. **Create Main Branch Ruleset**
-   - Click **New ruleset** → **New branch ruleset**
-   - Name: `Main Branch Protection`
-   - Enforcement status: **Active**
-   - Target branches: Add `main` to the "Include by pattern" field
-   - Add rules from `main-branch-protection.json`:
-     - ✅ Restrict deletions
-     - ✅ Require linear history
-     - ✅ Require a pull request before merging (1 approval required)
-     - ✅ Require status checks to pass
-     - ✅ Block force pushes
-   - Click **Create**
+2. **Main 브랜치 룰셋 생성**
+   - **New ruleset** → **New branch ruleset** 클릭
+   - 이름: `Main Branch Protection`
+   - 시행 상태: **Active**
+   - 대상 브랜치: "Include by pattern" 필드에 `main` 추가
+   - `main-branch-protection.json`의 규칙 추가:
+     - ✅ 삭제 제한
+     - ✅ 선형 히스토리 필요
+     - ✅ 병합 전 풀 리퀘스트 필요 (1개 승인 필요)
+     - ✅ 상태 확인 통과 필요
+     - ✅ 강제 푸시 차단
+   - **Create** 클릭
 
-3. **Create Develop Branch Ruleset**
-   - Click **New ruleset** → **New branch ruleset**
-   - Name: `Develop Branch Protection`
-   - Enforcement status: **Active**
-   - Target branches: Add `develop` to the "Include by pattern" field
-   - Add rules from `develop-branch-protection.json`:
-     - ✅ Restrict deletions
-     - ✅ Require a pull request before merging (1 approval required)
-     - ✅ Block force pushes
-   - Click **Create**
+3. **Develop 브랜치 룰셋 생성**
+   - **New ruleset** → **New branch ruleset** 클릭
+   - 이름: `Develop Branch Protection`
+   - 시행 상태: **Active**
+   - 대상 브랜치: "Include by pattern" 필드에 `develop` 추가
+   - `develop-branch-protection.json`의 규칙 추가:
+     - ✅ 삭제 제한
+     - ✅ 병합 전 풀 리퀘스트 필요 (1개 승인 필요)
+     - ✅ 강제 푸시 차단
+   - **Create** 클릭
 
-4. **Create Gitflow Branches Ruleset**
-   - Click **New ruleset** → **New branch ruleset**
-   - Name: `Gitflow Branches`
-   - Enforcement status: **Active**
-   - Target branches: Add patterns:
+4. **Gitflow 브랜치 룰셋 생성**
+   - **New ruleset** → **New branch ruleset** 클릭
+   - 이름: `Gitflow Branches`
+   - 시행 상태: **Active**
+   - 대상 브랜치: 패턴 추가:
      - `hotfix/*`
      - `feature/*`
      - `features/*`
      - `release/*`
-   - This ruleset allows creation and updates with fetch/merge
-   - Click **Create**
+   - 이 룰셋은 fetch/merge를 통한 생성 및 업데이트를 허용합니다
+   - **Create** 클릭
 
-## Alternative: Using GitHub API
+## 대안: GitHub API 사용
 
-You can also apply rulesets programmatically using the GitHub REST API. The JSON files in this directory can be used as payloads for the API requests.
+GitHub REST API를 사용하여 프로그래밍 방식으로 룰셋을 적용할 수도 있습니다. 이 디렉토리의 JSON 파일들을 API 요청의 페이로드로 사용할 수 있습니다.
 
-Example using `curl`:
+`curl`을 사용한 예시:
 
 ```bash
 curl -X POST \
@@ -59,21 +59,21 @@ curl -X POST \
   -d @main-branch-protection.json
 ```
 
-## Verification
+## 검증
 
-After creating the rulesets, verify they are active:
-1. Go to **Settings** → **Rules** → **Rulesets**
-2. You should see all three rulesets listed with "Active" status
-3. Click on each ruleset to review the configured rules
+룰셋 생성 후 활성 상태인지 확인:
+1. **Settings** → **Rules** → **Rulesets**로 이동
+2. "Active" 상태로 나열된 세 개의 룰셋이 표시되어야 합니다
+3. 각 룰셋을 클릭하여 설정된 규칙을 검토하세요
 
-## Notes
+## 참고사항
 
-- Repository admin privileges are required to create and modify rulesets
-- Rulesets take effect immediately after creation
-- You can temporarily disable a ruleset by changing its enforcement status to "Disabled"
-- Consider configuring bypass actors if certain users or teams need to bypass the rules
+- 룰셋을 생성하고 수정하려면 저장소 관리자 권한이 필요합니다
+- 룰셋은 생성 즉시 효력이 발생합니다
+- 시행 상태를 "Disabled"로 변경하여 일시적으로 룰셋을 비활성화할 수 있습니다
+- 특정 사용자나 팀이 규칙을 우회해야 하는 경우 bypass actors를 설정하는 것을 고려하세요
 
-## References
+## 참고 자료
 
-- [GitHub Rulesets Documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)
-- [GitHub REST API - Rulesets](https://docs.github.com/en/rest/repos/rules)
+- [GitHub 룰셋 문서](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)
+- [GitHub REST API - 룰셋](https://docs.github.com/en/rest/repos/rules)

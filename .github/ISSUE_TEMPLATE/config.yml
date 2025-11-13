@@ -1,8 +1,8 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Questions & Discussions
+  - name: 질문 & 토론
     url: https://github.com/KamiJeong/frontend-monorepo-playground/discussions
-    about: Ask questions and discuss ideas with the community
-  - name: Security Issues
+    about: 커뮤니티와 질문하고 아이디어를 토론하세요
+  - name: 보안 이슈
     url: https://github.com/KamiJeong/frontend-monorepo-playground/security/advisories/new
-    about: Report security vulnerabilities privately
+    about: 보안 취약점을 비공개로 제보하세요

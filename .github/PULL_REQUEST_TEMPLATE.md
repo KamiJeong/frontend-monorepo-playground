@@ -1,41 +1,41 @@
-## Description
-<!-- Provide a brief description of the changes in this PR -->
+## 설명
+<!-- 이 PR의 변경사항에 대한 간략한 설명을 작성해주세요 -->
 
-## Type of Change
-<!-- Mark the relevant option with an "x" -->
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
-- [ ] Refactoring (no functional changes)
-- [ ] Build/CI configuration change
-- [ ] Other (please describe):
+## 변경 유형
+<!-- 해당하는 옵션에 "x"를 표시해주세요 -->
+- [ ] 버그 수정 (기존 기능을 수정하는 변경사항)
+- [ ] 새로운 기능 (기능을 추가하는 변경사항)
+- [ ] 호환성 파괴 변경 (기존 기능이 예상대로 작동하지 않게 하는 변경사항)
+- [ ] 문서 업데이트
+- [ ] 리팩토링 (기능 변경 없음)
+- [ ] 빌드/CI 설정 변경
+- [ ] 기타 (설명해주세요):
 
-## Related Issue
-<!-- Link to the issue this PR addresses, e.g., Fixes #123 -->
+## 관련 이슈
+<!-- 이 PR이 해결하는 이슈를 링크해주세요, 예: Fixes #123 -->
 
-## Changes Made
-<!-- List the main changes made in this PR -->
+## 변경 내용
+<!-- 이 PR에서 이루어진 주요 변경사항을 나열해주세요 -->
 - 
 - 
 
-## Testing
-<!-- Describe the tests you ran to verify your changes -->
-- [ ] Existing tests pass
-- [ ] Added new tests for new functionality
-- [ ] Manually tested the changes
+## 테스트
+<!-- 변경사항을 검증하기 위해 실행한 테스트를 설명해주세요 -->
+- [ ] 기존 테스트 통과
+- [ ] 새로운 기능에 대한 테스트 추가
+- [ ] 변경사항을 수동으로 테스트
 
-## Checklist
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
+## 체크리스트
+- [ ] 내 코드는 이 프로젝트의 스타일 가이드라인을 따릅니다
+- [ ] 내 코드에 대한 자체 검토를 수행했습니다
+- [ ] 이해하기 어려운 부분에 주석을 추가했습니다
+- [ ] 문서에 해당하는 변경사항을 반영했습니다
+- [ ] 내 변경사항으로 인한 새로운 경고가 발생하지 않습니다
+- [ ] 내 수정사항이나 기능이 작동함을 증명하는 테스트를 추가했습니다
+- [ ] 새로운 테스트와 기존 테스트가 로컬에서 통과합니다
 
-## Screenshots (if applicable)
-<!-- Add screenshots to help explain your changes -->
+## 스크린샷 (해당하는 경우)
+<!-- 변경사항을 설명하는 스크린샷을 추가해주세요 -->
 
-## Additional Notes
-<!-- Add any additional notes or context about the PR -->
+## 추가 참고사항
+<!-- PR에 대한 추가 참고사항이나 컨텍스트를 작성해주세요 -->

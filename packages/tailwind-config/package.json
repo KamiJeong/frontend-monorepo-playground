@@ -1,0 +1,14 @@
+{
+  "name": "@playground/tailwind-config",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "basic.css": "./basic.css",
+    "postcss.config.cjs": "./postcss.config.cjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17"
+  }
+}

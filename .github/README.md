@@ -17,7 +17,7 @@
 
 - **`develop`**: 기능 통합 브랜치
   - PR에 최소 1개의 승인 필요
-  - Copilot 코드 리뷰 필요
+  - Copilot 코드 리뷰 필요 (※ Copilot 리뷰는 별도의 룰셋 규칙이 아니라, 필수 상태 체크(Required status check)로 적용됩니다)
   - 필수 상태 체크(Required status checks) 통과 필요
   - 선형 히스토리 필요
   - 직접 푸시 불가 (PR만 가능)

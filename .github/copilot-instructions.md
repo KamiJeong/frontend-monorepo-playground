@@ -170,19 +170,19 @@ Components are exported through the package.json exports field:
 
 ### Self-Review Requirements
 
-- **Always perform code review**: Before finalizing any changes, use the `code_review` tool to review your own work
-- **Address review feedback**: Carefully examine all comments from the code review tool and address relevant issues
-- **Security scanning**: Run `codeql_checker` after code review to identify potential security vulnerabilities
-- **Iterative improvement**: If significant changes are made after review, perform another review cycle
+- **Always perform code review**: Before finalizing any changes, open a Pull Request (PR) and review your own code for clarity, correctness, and maintainability.
+- **Address review feedback**: Carefully examine all comments from reviewers and address relevant issues.
+- **Security scanning**: If available, run security analysis tools such as GitHub CodeQL or other static analysis tools to identify potential vulnerabilities.
+- **Iterative improvement**: If significant changes are made after review, repeat the review process.
 
 ### Review Process
 
-1. Make your code changes
-2. Run `code_review` tool to get automated feedback
-3. Address any valid concerns from the review
-4. Run `codeql_checker` for security analysis
-5. Fix any security issues discovered
-6. Document any remaining issues in your commit message or PR description
+1. Make your code changes.
+2. Open a Pull Request (PR) and review your own changes before requesting review from others.
+3. Request a review from at least one other team member.
+4. Address any valid concerns or suggestions from the review.
+5. If available, run security analysis tools (e.g., GitHub CodeQL) and fix any issues discovered.
+6. Document any remaining known issues in your commit message or PR description.
 
 ## Best Practices
 

@@ -31,7 +31,7 @@ assignees: ''
 - **브라우저**: [예: Chrome 120, Firefox 121, Safari 17]
 - **Node 버전**: [예: 18.17.0]
 - **패키지 매니저**: [예: yarn 4.11.0]
-- **영향받은 패키지/앱**: [예: @repo/ui, apps/docs]
+- **영향받은 패키지/앱**: [예: @playground/ui, apps/docs]
 
 ## 추가 정보
 <!-- 문제에 대한 추가 정보를 작성해주세요 -->

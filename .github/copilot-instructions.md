@@ -166,6 +166,24 @@ Components are exported through the package.json exports field:
 - Uses `@storybook/addon-vitest` for component testing
 - Uses `@storybook/addon-a11y` for accessibility testing
 
+## Code Review and Quality Assurance
+
+### Self-Review Requirements
+
+- **Always perform code review**: Before finalizing any changes, use the `code_review` tool to review your own work
+- **Address review feedback**: Carefully examine all comments from the code review tool and address relevant issues
+- **Security scanning**: Run `codeql_checker` after code review to identify potential security vulnerabilities
+- **Iterative improvement**: If significant changes are made after review, perform another review cycle
+
+### Review Process
+
+1. Make your code changes
+2. Run `code_review` tool to get automated feedback
+3. Address any valid concerns from the review
+4. Run `codeql_checker` for security analysis
+5. Fix any security issues discovered
+6. Document any remaining issues in your commit message or PR description
+
 ## Best Practices
 
 1. **Workspace References**: Use workspace protocol (`workspace:^` or `workspace:*`) for internal dependencies

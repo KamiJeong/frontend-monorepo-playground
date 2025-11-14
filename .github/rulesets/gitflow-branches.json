@@ -24,5 +24,7 @@
       }
     }
   ],
-  "bypass_actors": []
+  "bypass_actors": [
+    "KamiJeong"
+  ]
 }

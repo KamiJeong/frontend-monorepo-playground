@@ -12,4 +12,3 @@ max_line_length = 100
 [*.{js,jsx,ts,tsx}]
 indent_size = 2
 
-[*.html]

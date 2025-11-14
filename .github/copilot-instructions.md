@@ -2,6 +2,12 @@
 
 This document provides guidance for GitHub Copilot when working with this repository.
 
+## Communication Preferences
+
+- **Language**: Respond in Korean (한글) when communicating with users
+- **Code Comments**: Code comments and documentation should remain in English for international compatibility
+- **Commit Messages**: Write commit messages in English following conventional commits format
+
 ## Repository Overview
 
 This is a **frontend monorepo** playground project using **Yarn Workspaces** to manage multiple packages and applications. The repository follows the **Gitflow** branching strategy for development workflow.

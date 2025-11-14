@@ -28,7 +28,6 @@ dist/
 
 # IntelliJ / WebStorm
 .idea/*
-!.idea/codeStyles
 !.idea/runConfigurations
 
 # Common

@@ -30,5 +30,7 @@
       }
     }
   ],
-  "bypass_actors": []
+  // Allow repository administrators to bypass branch protection rules in emergency situations only.
+  // Bypassing should be used strictly for urgent hotfixes or critical incidents, and all actions should be documented.
+  "bypass_actors": ["role:admin"]
 }

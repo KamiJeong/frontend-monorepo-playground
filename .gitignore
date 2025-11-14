@@ -8,6 +8,10 @@
 # Whether you use PnP or not, the node_modules folder is often used to store
 # build artifacts that should be gitignored
 node_modules
+dist/
+*.log
+.env
+*.iml
 
 # Swap the comments on the following lines if you wish to use zero-installs
 # In that case, don't forget to run `yarn config set enableGlobalCache false`!
@@ -15,3 +19,16 @@ node_modules
 
 #!.yarn/cache
 .pnp.*
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# IntelliJ / WebStorm
+.idea/*
+!.idea/runConfigurations
+
+# Common
+

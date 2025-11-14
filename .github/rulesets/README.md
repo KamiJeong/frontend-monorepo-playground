@@ -45,7 +45,7 @@
      - `feature/*`
      - `features/*`
      - `release/*`
-   - 이 룰셋은 fetch/merge를 통한 생성 및 업데이트를 허용합니다
+   - 이 룰셋은 fetch/merge를 통한 브랜치 생성은 제한되며, 기존 브랜치의 업데이트만 허용합니다
    - **Create** 클릭
 
 ## 대안: GitHub API 사용

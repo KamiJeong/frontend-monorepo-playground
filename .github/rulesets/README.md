@@ -29,7 +29,10 @@
    - 대상 브랜치: "Include by pattern" 필드에 `develop` 추가
    - `develop-branch-protection.json`의 규칙 추가:
      - ✅ 삭제 제한
+     - ✅ 선형 히스토리 필요
      - ✅ 병합 전 풀 리퀘스트 필요 (1개 승인 필요)
+     - ✅ Copilot 코드 리뷰 규칙 적용
+     - ✅ 상태 확인: 'github-copilot/code-review' 통과 필요
      - ✅ 강제 푸시 차단
    - **Create** 클릭
 

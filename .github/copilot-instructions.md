@@ -140,6 +140,7 @@ yarn workspace @playground/ui add package-name
 ### Component Exports
 
 Components are exported through the package.json exports field:
+
 - `@playground/ui/components/*` - Individual components
 - `@playground/ui/hooks/*` - Custom hooks
 - `@playground/ui/lib/*` - Utility functions

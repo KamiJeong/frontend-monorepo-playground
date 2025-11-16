@@ -787,7 +787,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playground/eslint-config@workspace:^, @playground/eslint-config@workspace:^*, @playground/eslint-config@workspace:packages/eslint-config":
+"@playground/eslint-config@workspace:*, @playground/eslint-config@workspace:^*, @playground/eslint-config@workspace:packages/eslint-config":
   version: 0.0.0-use.local
   resolution: "@playground/eslint-config@workspace:packages/eslint-config"
   dependencies:
@@ -808,7 +808,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@playground/tailwind-config@workspace:^, @playground/tailwind-config@workspace:packages/tailwind-config":
+"@playground/tailwind-config@workspace:*, @playground/tailwind-config@workspace:packages/tailwind-config":
   version: 0.0.0-use.local
   resolution: "@playground/tailwind-config@workspace:packages/tailwind-config"
   dependencies:
@@ -818,7 +818,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@playground/typescript-config@workspace:^, @playground/typescript-config@workspace:packages/typescript-config":
+"@playground/typescript-config@workspace:*, @playground/typescript-config@workspace:packages/typescript-config":
   version: 0.0.0-use.local
   resolution: "@playground/typescript-config@workspace:packages/typescript-config"
   languageName: unknown
@@ -828,9 +828,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@playground/ui@workspace:packages/ui"
   dependencies:
-    "@playground/eslint-config": "workspace:^"
-    "@playground/tailwind-config": "workspace:^"
-    "@playground/typescript-config": "workspace:^"
+    "@playground/eslint-config": "workspace:*"
+    "@playground/tailwind-config": "workspace:*"
+    "@playground/typescript-config": "workspace:*"
     "@types/react": "npm:^19.2.4"
     "@types/react-dom": "npm:^19.2.3"
     class-variance-authority: "npm:^0.7.1"

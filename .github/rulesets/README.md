@@ -62,9 +62,11 @@ curl -X POST \
 
 > ⚠️ **주의:** JSON 파일(`main-branch-protection.json` 등)에 주석이 포함되어 있으면 GitHub API 요청이 실패합니다.  
 > API로 전송하기 전에 반드시 모든 주석을 제거하여 유효한 JSON만 포함되도록 하세요.
+
 ## 검증
 
 룰셋 생성 후 활성 상태인지 확인:
+
 1. **Settings** → **Rules** → **Rulesets**로 이동
 2. "Active" 상태로 나열된 세 개의 룰셋이 표시되어야 합니다
 3. 각 룰셋을 클릭하여 설정된 규칙을 검토하세요

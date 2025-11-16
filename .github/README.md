@@ -29,11 +29,9 @@
 - **`feature/*`** 또는 **`features/*`**: 새로운 기능
   - 분기 시작: `develop`
   - 병합 대상: `develop`
-  
 - **`hotfix/*`**: 긴급 수정
   - 분기 시작: `main`
   - 병합 대상: `main`과 `develop` 모두
-  
 - **`release/*`**: 릴리스 준비
   - 분기 시작: `develop`
   - 병합 대상: `main`과 `develop` 모두
@@ -59,6 +57,7 @@
 ## 풀 리퀘스트 템플릿
 
 PR 템플릿 (`.github/PULL_REQUEST_TEMPLATE.md`)은 모든 풀 리퀘스트에 대한 표준화된 형식을 제공하여 다음을 보장합니다:
+
 - 변경사항의 명확한 설명
 - 적절한 분류
 - 관련 이슈 링크
@@ -68,6 +67,7 @@ PR 템플릿 (`.github/PULL_REQUEST_TEMPLATE.md`)은 모든 풀 리퀘스트에 
 ## 사용법
 
 ### Feature 브랜치 생성
+
 ```bash
 git checkout develop
 git pull origin develop
@@ -75,6 +75,7 @@ git checkout -b feature/your-feature-name
 ```
 
 ### Hotfix 브랜치 생성
+
 ```bash
 git checkout main
 git pull origin main
@@ -82,6 +83,7 @@ git checkout -b hotfix/your-fix-name
 ```
 
 ### Release 브랜치 생성
+
 ```bash
 git checkout develop
 git pull origin develop

@@ -19,7 +19,7 @@ export const config = [
       turbo: turboPlugin,
     },
     rules: {
-      "turbo/no-undeclared-env-vars": "warn",
+      'turbo/no-undeclared-env-vars': 'warn',
     },
   },
   {
@@ -29,24 +29,24 @@ export const config = [
   },
   {
     plugins: {
-      "prefer-arrow-functions": eslintPluginPreferArrowFunctions,
+      'prefer-arrow-functions': eslintPluginPreferArrowFunctions,
     },
     rules: {
-      "prefer-arrow-functions/prefer-arrow-functions": [
-        "warn",
+      'prefer-arrow-functions/prefer-arrow-functions': [
+        'warn',
         {
-          "allowedNames": [],
-          "allowNamedFunctions": false,
-          "allowObjectProperties": false,
-          "classPropertiesAllowed": false,
-          "disallowPrototype": false,
-          "returnStyle": "unchanged",
-          "singleReturnOnly": false
-        }
-      ]
-    }
+          allowedNames: [],
+          allowNamedFunctions: false,
+          allowObjectProperties: false,
+          classPropertiesAllowed: false,
+          disallowPrototype: false,
+          returnStyle: 'unchanged',
+          singleReturnOnly: false,
+        },
+      ],
+    },
   },
   {
-    ignores: ["dist/**"],
+    ignores: ['dist/**'],
   },
 ];

@@ -60,6 +60,8 @@ curl -X POST \
   -d @main-branch-protection.json
 ```
 
+> ⚠️ **주의:** JSON 파일(`main-branch-protection.json` 등)에 주석이 포함되어 있으면 GitHub API 요청이 실패합니다.  
+> API로 전송하기 전에 반드시 모든 주석을 제거하여 유효한 JSON만 포함되도록 하세요.
 ## 검증
 
 룰셋 생성 후 활성 상태인지 확인:

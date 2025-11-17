@@ -16,8 +16,19 @@ export const config = [
   prettierConfig,
   importPlugin.flatConfigs.recommended,
   {
+    settings: {
+      'import/resolver': {
+        typescript: true,
+        node: true,
+      },
+    },
     rules: {
-      'import/no-unresolved': 'error',
+      'import/no-unresolved': [
+        'error',
+        {
+          ignore: ['^@playground/'],
+        },
+      ],
       'import/named': 'error',
       'import/namespace': 'error',
       'import/default': 'error',

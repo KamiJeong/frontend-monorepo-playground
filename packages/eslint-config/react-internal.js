@@ -23,8 +23,6 @@ export const config = [
     },
     rules: {
       ...react.configs.flat.recommended.rules,
-      'react/jsx-uses-react': 'error',
-      'react/jsx-uses-vars': 'error',
     },
   },
   {

@@ -7,8 +7,7 @@
     "./base": "./base.js",
     "./next-js": "./next.js",
     "./storybook": "./storybook.js",
-    "./react-internal": "./react-internal.js",
-    "./sample": "./sample.js"
+    "./react-internal": "./react-internal.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

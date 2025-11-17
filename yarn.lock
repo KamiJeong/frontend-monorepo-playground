@@ -840,14 +840,18 @@ __metadata:
     "@playground/eslint-config": "workspace:^*"
     "@playground/tailwind-config": "workspace:^*"
     "@playground/typescript-config": "workspace:^*"
+    "@radix-ui/react-slot": "npm:^1.2.4"
     "@types/react": "npm:^19.2.4"
     "@types/react-dom": "npm:^19.2.3"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
     eslint: "npm:^9.39.1"
+    lucide-react: "npm:^0.553.0"
     react: "npm:^19.2.0"
     react-dom: "npm:^19.2.0"
     tailwind-merge: "npm:^3.4.0"
+    tailwindcss: "npm:^4.1.17"
+    tw-animate-css: "npm:^1.4.0"
     typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
@@ -856,6 +860,34 @@ __metadata:
   version: 1.0.0-next.29
   resolution: "@polka/url@npm:1.0.0-next.29"
   checksum: 10c0/0d58e081844095cb029d3c19a659bfefd09d5d51a2f791bc61eba7ea826f13d6ee204a8a448c2f5a855c17df07b37517373ff916dd05801063c0568ae9937684
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-compose-refs@npm:1.1.2":
+  version: 1.1.2
+  resolution: "@radix-ui/react-compose-refs@npm:1.1.2"
+  peerDependencies:
+    "@types/react": "*"
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/d36a9c589eb75d634b9b139c80f916aadaf8a68a7c1c4b8c6c6b88755af1a92f2e343457042089f04cc3f23073619d08bb65419ced1402e9d4e299576d970771
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-slot@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "@radix-ui/react-slot@npm:1.2.4"
+  dependencies:
+    "@radix-ui/react-compose-refs": "npm:1.1.2"
+  peerDependencies:
+    "@types/react": "*"
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/8b719bb934f1ae5ac0e37214783085c17c2f1080217caf514c1c6cc3d9ca56c7e19d25470b26da79aa6e605ab36589edaade149b76f5fc0666f1063e2fc0a0dc
   languageName: node
   linkType: hard
 
@@ -1171,7 +1203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-vite@npm:^10.0.7":
+"@storybook/react-vite@npm:10.0.7":
   version: 10.0.7
   resolution: "@storybook/react-vite@npm:10.0.7"
   dependencies:
@@ -1372,6 +1404,19 @@ __metadata:
     postcss: "npm:^8.4.41"
     tailwindcss: "npm:4.1.17"
   checksum: 10c0/76094f601aadd556aad59ad13613b22b9edfda5d8fdc0724a79b8331b27dbac121c0d33b5b65f94468c01290c58f261dd1d8553dde0d261cd4d18b6110aa2242
+  languageName: node
+  linkType: hard
+
+"@tailwindcss/vite@npm:^4.1.17":
+  version: 4.1.17
+  resolution: "@tailwindcss/vite@npm:4.1.17"
+  dependencies:
+    "@tailwindcss/node": "npm:4.1.17"
+    "@tailwindcss/oxide": "npm:4.1.17"
+    tailwindcss: "npm:4.1.17"
+  peerDependencies:
+    vite: ^5.2.0 || ^6 || ^7
+  checksum: 10c0/47d9bdfb7bf7d2df0661b50e91656779863146cca97571e21e2c3f9351f468c27cbc7ed1d1d6c373f1e721dca66d32a3f12f77e9d3e74bed344e27afec199ad3
   languageName: node
   linkType: hard
 
@@ -2658,11 +2703,15 @@ __metadata:
     "@chromatic-com/storybook": "npm:4.1.2"
     "@eslint/js": "npm:^9.39.1"
     "@playground/eslint-config": "workspace:^*"
+    "@playground/tailwind-config": "workspace:^*"
+    "@playground/typescript-config": "workspace:^*"
     "@playground/ui": "workspace:^*"
     "@storybook/addon-a11y": "npm:10.0.7"
     "@storybook/addon-docs": "npm:10.0.7"
     "@storybook/addon-vitest": "npm:10.0.7"
-    "@storybook/react-vite": "npm:^10.0.7"
+    "@storybook/react-vite": "npm:10.0.7"
+    "@tailwindcss/postcss": "npm:^4.1.17"
+    "@tailwindcss/vite": "npm:^4.1.17"
     "@types/node": "npm:^24.10.0"
     "@types/react": "npm:^19.2.2"
     "@types/react-dom": "npm:^19.2.2"
@@ -2676,6 +2725,8 @@ __metadata:
     globals: "npm:^16.5.0"
     playwright: "npm:^1.56.1"
     storybook: "npm:10.0.7"
+    tailwindcss: "npm:^4.1.17"
+    tw-animate-css: "npm:^1.4.0"
     typescript: "npm:~5.9.3"
     typescript-eslint: "npm:^8.46.3"
     vite: "npm:^7.2.2"
@@ -4719,6 +4770,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lucide-react@npm:^0.553.0":
+  version: 0.553.0
+  resolution: "lucide-react@npm:0.553.0"
+  peerDependencies:
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/b1283f1a2302a50d6a16bd67b9f7417ae08a74cba59ae5ca9953527cb9724247df12ba8c72ca2fc6a70b745f8315cc709ac7573643c4088728766da151999ef6
+  languageName: node
+  linkType: hard
+
 "magic-string@npm:^0.30.0, magic-string@npm:^0.30.17, magic-string@npm:^0.30.21":
   version: 0.30.21
   resolution: "magic-string@npm:0.30.21"
@@ -6269,6 +6329,13 @@ __metadata:
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
+  languageName: node
+  linkType: hard
+
+"tw-animate-css@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "tw-animate-css@npm:1.4.0"
+  checksum: 10c0/6cfbc19ccc73883ec80ef1f9147f43e736cb01ee99c8172968b37eb81b720523d30e38b1a96aef92db3c586d864204db5510b51744ddacbbf0ad8e3c7fb56ec7
   languageName: node
   linkType: hard
 

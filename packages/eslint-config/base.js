@@ -4,6 +4,7 @@ import onlyWarn from 'eslint-plugin-only-warn';
 import eslintPluginPreferArrowFunctions from 'eslint-plugin-prefer-arrow-functions';
 import prettierConfig from 'eslint-config-prettier';
 import eslintPluginPrettier from 'eslint-plugin-prettier';
+import importPlugin from 'eslint-plugin-import';
 
 /**
  * A shared ESLint configuration for the repository.
@@ -13,6 +14,23 @@ import eslintPluginPrettier from 'eslint-plugin-prettier';
 export const config = [
   js.configs.recommended,
   prettierConfig,
+  importPlugin.flatConfigs.recommended,
+  {
+    rules: {
+      'import/no-unresolved': 'error',
+      'import/named': 'error',
+      'import/namespace': 'error',
+      'import/default': 'error',
+      'import/export': 'error',
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          'newlines-between': 'always',
+        },
+      ],
+    },
+  },
   {
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],
     plugins: {

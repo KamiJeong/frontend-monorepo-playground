@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-
 import { fn } from 'storybook/test';
-
-import { Button } from '@playground/ui/button';
+import { Button } from '@playground/ui/components/button';
 
 const meta = {
   title: 'UI/Button',
@@ -86,5 +84,9 @@ export const Small: Story = {
 };
 
 export const Hello: Story = {
-  render: () => <button type="button" className="border-1 p-5">Button</button>
-}
+  render: () => (
+    <button type="button" className="border-1 p-5">
+      Button
+    </button>
+  ),
+};

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -25,7 +26,8 @@
     "@storybook/addon-a11y": "10.0.7",
     "@storybook/addon-docs": "10.0.7",
     "@storybook/addon-vitest": "10.0.7",
-    "@storybook/react-vite": "10.0.7",
+    "@storybook/react": "^10.0.8",
+    "@storybook/react-vite": "^10.0.8",
     "@tailwindcss/postcss": "^4.1.17",
     "@tailwindcss/vite": "^4.1.17",
     "@types/node": "^24.10.0",

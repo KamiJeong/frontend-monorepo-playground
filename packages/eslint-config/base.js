@@ -18,15 +18,19 @@ export const config = [
   {
     settings: {
       'import/resolver': {
-        typescript: true,
-        node: true,
+        typescript: {
+          alwaysTryTypes: true,
+        },
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
       },
     },
     rules: {
       'import/no-unresolved': [
         'error',
         {
-          ignore: ['^@playground/'],
+          ignore: ['^@playground/', '^node:'],
         },
       ],
       'import/named': 'error',

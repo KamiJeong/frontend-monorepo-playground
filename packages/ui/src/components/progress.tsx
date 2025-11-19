@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+
 import * as ProgressPrimitive from '@radix-ui/react-progress';
 
 import { cn } from '@playground/ui/lib/utils';
@@ -12,6 +13,7 @@ const Progress = ({
 }: React.ComponentProps<typeof ProgressPrimitive.Root>) => (
   <ProgressPrimitive.Root
     data-slot="progress"
+    aria-valuenow={value || 0}
     className={cn('bg-primary/20 relative h-2 w-full overflow-hidden rounded-full', className)}
     {...props}
   >

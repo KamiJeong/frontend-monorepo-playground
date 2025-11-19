@@ -1,12 +1,11 @@
 'use client';
 
 import * as React from 'react';
+
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { PanelLeftIcon } from 'lucide-react';
 
-import { useIsMobile } from '@playground/ui/hooks/use-mobile';
-import { cn } from '@playground/ui/lib/utils';
 import { Button } from '@playground/ui/components/button';
 import { Input } from '@playground/ui/components/input';
 import { Separator } from '@playground/ui/components/separator';
@@ -24,6 +23,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@playground/ui/components/tooltip';
+import { useIsMobile } from '@playground/ui/hooks/use-mobile';
+import { cn } from '@playground/ui/lib/utils';
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;

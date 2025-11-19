@@ -14,30 +14,59 @@ import importPlugin from 'eslint-plugin-import';
 export const config = [
   js.configs.recommended,
   prettierConfig,
-  importPlugin.flatConfigs.recommended,
   {
-    settings: {
-      'import/resolver': {
-        typescript: true,
-        node: true,
-      },
+    plugins: {
+      import: importPlugin,
     },
     rules: {
-      'import/no-unresolved': [
-        'error',
-        {
-          ignore: ['^@playground/'],
-        },
-      ],
-      'import/named': 'error',
-      'import/namespace': 'error',
-      'import/default': 'error',
+      // Turn off rules that have issues with Yarn PnP
+      'import/no-unresolved': 'off',
+      'import/named': 'off',
+      'import/namespace': 'off',
+      'import/default': 'off',
       'import/export': 'error',
+      'import/no-duplicates': 'error',
+      'import/first': 'error',
+      'import/newline-after-import': 'error',
       'import/order': [
         'error',
         {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          groups: [
+            'builtin', // Node.js built-in modules (e.g., 'fs', 'path')
+            'external', // External packages from node_modules
+            'internal', // Internal workspace packages (@playground/*)
+            ['parent', 'sibling'], // Relative imports (../, ./)
+            'index', // Index imports (./)
+            'object', // Object imports (import log = console.log)
+            'type', // Type imports (import type { } from)
+          ],
+          pathGroups: [
+            {
+              // React should be first among external imports
+              pattern: 'react',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              // React-dom should be second among external imports
+              pattern: 'react-dom',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              // Internal workspace packages
+              pattern: '@playground/**',
+              group: 'internal',
+              position: 'before',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
           'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+          warnOnUnassignedImports: true,
         },
       ],
     },

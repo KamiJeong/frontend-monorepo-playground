@@ -10,11 +10,11 @@ This document provides guidance for GitHub Copilot when working with this reposi
 
 ## Repository Overview
 
-This is a **frontend monorepo** playground project using **Yarn Workspaces** to manage multiple packages and applications. The repository follows the **Gitflow** branching strategy for development workflow.
+This is a **frontend monorepo** playground project using **Bun Workspaces** to manage multiple packages and applications. The repository follows the **Gitflow** branching strategy for development workflow.
 
 ## Tech Stack
 
-- **Package Manager**: Yarn v4.11.0
+- **Package Manager**: Bun v1.0.0+
 - **Language**: TypeScript
 - **Build Tool**: Vite
 - **Framework**: React 19
@@ -86,7 +86,7 @@ git checkout -b hotfix/your-fix-name
 
 - Use the shared ESLint configurations from `@playground/eslint-config`
 - Available configs: `base.js`, `next.js`, `react-internal.js`, `storybook.js`
-- Run linting with: `yarn lint` or `npm run lint`
+- Run linting with: `bun run lint` or `bun lint`
 
 ### TypeScript
 
@@ -100,29 +100,29 @@ git checkout -b hotfix/your-fix-name
 
 ```bash
 # Install all dependencies across the monorepo
-yarn install
+bun install
 ```
 
 ### Running Scripts
 
 ```bash
 # Run a script in a specific workspace
-yarn workspace docs dev
-yarn workspace docs storybook
+bun --filter docs dev
+bun --filter docs storybook
 
 # Run linting across all packages
-yarn workspaces foreach run lint
+bun run --filter '*' lint
 ```
 
 ### Adding Dependencies
 
 ```bash
 # Add to root
-yarn add -D package-name
+bun add -D package-name
 
 # Add to a specific workspace
-yarn workspace docs add package-name
-yarn workspace @playground/ui add package-name
+bun add package-name --cwd apps/docs
+bun add package-name --cwd packages/ui
 ```
 
 ## Component Development
@@ -149,8 +149,8 @@ Components are exported through the package.json exports field:
 ### Storybook Documentation
 
 - Located in `apps/docs/`
-- Run with: `yarn workspace docs storybook`
-- Build with: `yarn workspace docs build-storybook`
+- Run with: `bun --filter docs storybook`
+- Build with: `bun --filter docs build-storybook`
 - Stories should be co-located with components when possible
 
 ## Testing
@@ -200,20 +200,20 @@ Components are exported through the package.json exports field:
 
 ```bash
 # Development
-yarn workspace docs dev              # Start docs app in dev mode
-yarn workspace docs storybook        # Start Storybook
+bun --filter docs dev                # Start docs app in dev mode
+bun --filter docs storybook          # Start Storybook
 
 # Building
-yarn workspace docs build            # Build docs app
-yarn workspace docs build-storybook  # Build Storybook
+bun --filter docs build              # Build docs app
+bun --filter docs build-storybook    # Build Storybook
 
 # Linting
-yarn workspace docs lint             # Lint docs
-yarn workspace @playground/ui lint   # Lint UI package
-yarn workspaces foreach run lint     # Lint all workspaces
+bun --filter docs lint               # Lint docs
+bun --filter @playground/ui lint     # Lint UI package
+bun run --filter '*' lint            # Lint all workspaces
 
 # Testing
-yarn workspace docs preview          # Preview production build
+bun --filter docs preview            # Preview production build
 ```
 
 ## Key Files
@@ -227,7 +227,9 @@ yarn workspace docs preview          # Preview production build
 
 ## Additional Resources
 
-- [Yarn Workspaces Documentation](https://yarnpkg.com/features/workspaces)
+- [Bun Documentation](https://bun.sh/docs)
+- [Bun Workspaces](https://bun.sh/docs/install/workspaces)
+- [Migration Guide](../MIGRATION.md) - Migrating from Yarn to Bun
 - [Vite Documentation](https://vitejs.dev/)
 - [Storybook Documentation](https://storybook.js.org/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/)

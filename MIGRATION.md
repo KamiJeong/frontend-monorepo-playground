@@ -5,6 +5,7 @@ This document provides a comprehensive guide for migrating from Yarn to Bun pack
 ## Why Bun?
 
 Bun is a modern JavaScript runtime and package manager that offers:
+
 - **Faster installation**: Up to 10x faster than Yarn/npm
 - **Built-in tooling**: Bundler, test runner, and package manager in one
 - **Drop-in replacement**: Compatible with Node.js and npm packages
@@ -75,6 +76,7 @@ bun install
 ```
 
 This will:
+
 - Read `package.json` files from all workspaces
 - Create `bun.lock` file (equivalent to `yarn.lock`)
 - Install dependencies in `node_modules` directories
@@ -95,29 +97,29 @@ bun pm ls
 
 ### Package Management
 
-| Task | Yarn Command | Bun Command |
-|------|-------------|-------------|
-| Install dependencies | `yarn install` | `bun install` |
-| Add dependency | `yarn add <package>` | `bun add <package>` |
-| Add dev dependency | `yarn add -D <package>` | `bun add -d <package>` |
-| Remove dependency | `yarn remove <package>` | `bun remove <package>` |
-| Update dependencies | `yarn upgrade` | `bun update` |
+| Task                 | Yarn Command            | Bun Command            |
+| -------------------- | ----------------------- | ---------------------- |
+| Install dependencies | `yarn install`          | `bun install`          |
+| Add dependency       | `yarn add <package>`    | `bun add <package>`    |
+| Add dev dependency   | `yarn add -D <package>` | `bun add -d <package>` |
+| Remove dependency    | `yarn remove <package>` | `bun remove <package>` |
+| Update dependencies  | `yarn upgrade`          | `bun update`           |
 
 ### Workspace Commands
 
-| Task | Yarn Command | Bun Command |
-|------|-------------|-------------|
-| Run script in workspace | `yarn workspace <name> <script>` | `bun --filter <name> <script>` |
-| Add to workspace | `yarn workspace <name> add <package>` | `bun add <package> --cwd <workspace-path>` |
-| Run in all workspaces | `yarn workspaces foreach run <script>` | `bun run --filter '*' <script>` |
+| Task                    | Yarn Command                           | Bun Command                                |
+| ----------------------- | -------------------------------------- | ------------------------------------------ |
+| Run script in workspace | `yarn workspace <name> <script>`       | `bun --filter <name> <script>`             |
+| Add to workspace        | `yarn workspace <name> add <package>`  | `bun add <package> --cwd <workspace-path>` |
+| Run in all workspaces   | `yarn workspaces foreach run <script>` | `bun run --filter '*' <script>`            |
 
 ### Running Scripts
 
-| Task | Yarn Command | Bun Command |
-|------|-------------|-------------|
-| Run script | `yarn <script>` | `bun run <script>` or `bun <script>` |
-| Run in specific workspace | `yarn workspace docs dev` | `bun --filter docs dev` |
-| Run in all workspaces | `yarn workspaces foreach run lint` | `bun run --filter '*' lint` |
+| Task                      | Yarn Command                       | Bun Command                          |
+| ------------------------- | ---------------------------------- | ------------------------------------ |
+| Run script                | `yarn <script>`                    | `bun run <script>` or `bun <script>` |
+| Run in specific workspace | `yarn workspace docs dev`          | `bun --filter docs dev`              |
+| Run in all workspaces     | `yarn workspaces foreach run lint` | `bun run --filter '*' lint`          |
 
 ## Common Development Commands
 
@@ -173,10 +175,7 @@ The workspace configuration in `package.json` remains the same:
 
 ```json
 {
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "workspaces": ["apps/*", "packages/*"]
 }
 ```
 
@@ -188,7 +187,8 @@ Bun automatically detects and uses this workspace configuration.
 
 **Problem**: `bun: command not found`
 
-**Solution**: 
+**Solution**:
+
 1. Ensure Bun is installed: `curl -fsSL https://bun.sh/install | bash`
 2. Restart your terminal or source your shell profile:
    ```bash
@@ -200,6 +200,7 @@ Bun automatically detects and uses this workspace configuration.
 **Problem**: Both `yarn.lock` and `bun.lock` exist
 
 **Solution**: Remove `yarn.lock` and use only `bun.lock`:
+
 ```bash
 rm yarn.lock
 bun install
@@ -209,7 +210,8 @@ bun install
 
 **Problem**: Packages not found or version conflicts
 
-**Solution**: 
+**Solution**:
+
 1. Clear node_modules and reinstall:
    ```bash
    rm -rf node_modules apps/*/node_modules packages/*/node_modules
@@ -225,7 +227,8 @@ bun install
 
 **Problem**: Some npm scripts don't work with Bun
 
-**Solution**: 
+**Solution**:
+
 - Use `bun run` explicitly: `bun run <script>`
 - Check if the script requires Node.js-specific features
 - Consider using `bunx` (Bun's npx equivalent) for CLI tools

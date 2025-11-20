@@ -17,6 +17,7 @@
     "postgres": "^3.4.7",
     "nanoid": "^5.1.6"
   },
+  "devDependencies": {
     "@playground/eslint-config": "workspace:*",
     "@playground/typescript-config": "workspace:*",
     "@types/pg": "^8.15.6",

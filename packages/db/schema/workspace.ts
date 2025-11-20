@@ -13,13 +13,7 @@ export const workspace = pgTable('workspace', {
   createdAt: timestamp('created_at').defaultNow(),
 });
 
-export const workspaceMember = pgTable(
-  'workspace_member',
-  {
-    userId: text('user_id').notNull().references(() => user.id),
-    workspaceId: text('workspace_id').notNull().references(() => workspace.id),
-  },
-  (table) => ({
-    pk: table.primaryKey(['userId', 'workspaceId']),
-  })
-);
+export const workspaceMember = pgTable('workspace_member', {
+  userId: text('user_id').references(() => user.id),
+  workspaceId: text('workspace_id').references(() => workspace.id),
+});

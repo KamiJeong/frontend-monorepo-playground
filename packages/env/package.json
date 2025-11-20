@@ -1,0 +1,14 @@
+{
+  "name": "@playground/env",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "main": "./index.js",
+  "dependencies": {
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@playground/eslint-config": "workspace:*",
+    "@playground/typescript-config": "workspace:*"
+  }
+}

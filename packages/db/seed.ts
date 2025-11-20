@@ -255,13 +255,4 @@ const seed = async () => {
   }
 };
 
-seed()
-  .then(() => {
-    console.log('Seed script finished.');
-  })
-  .catch(() => {
-    console.log('Seed script failed.');
-  })
-  .finally(() => {
-    process.exit();
-  });
+seed();

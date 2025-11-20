@@ -1,0 +1,27 @@
+{
+  "name": "@playground/db",
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "db:push": "npx drizzle-kit push",
+    "db:generate": "npx drizzle-kit generate",
+    "db:migrations": "npx drizzle-kit migrate",
+    "db:seed": "tsx seed.ts"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.7",
+    "drizzle-orm": "^0.44.7",
+    "pg": "^8.16.3",
+    "postgres": "^3.4.7",
+    "nanoid": "^5.1.6"
+  },
+  "devDependencies": {
+    "@playground/eslint-config": "workspace:*",
+    "@playground/typescript-config": "workspace:*",
+    "@types/pg": "^8.15.6",
+    "tsx": "^4.20.6",
+    "@playground/env": "workspace:*"
+  }
+}

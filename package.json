@@ -6,10 +6,12 @@
     "packages/*"
   ],
   "scripts": {
+    "prepare": "husky install",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "bun run --filter '*' lint",
     "lint:fix": "bun run --filter '*' lint:fix",
+    "lint-staged": "lint-staged",
     "type-check": "bun run --filter '*' type-check",
     "clean": "bun run --filter '*' clean"
   },
@@ -26,10 +28,17 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3",
     "vite": "^7.2.2"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

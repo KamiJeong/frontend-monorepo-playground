@@ -7,7 +7,7 @@ export const task = pgTable('task', {
   id: text('id').primaryKey(),
 
   workspaceId: text('workspace_id')
-    .references(() => workspace.id)
+    .references(() => workspace.id, { onDelete: 'cascade' })
     .notNull(),
 
   title: text('title').notNull(),

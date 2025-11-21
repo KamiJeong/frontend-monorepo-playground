@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { nanoid } from 'nanoid';
 
-import { task, taskComment, user, workspace, workspaceMember } from './schema';
+import { taskComments, tasks, users, workspaceMembers, workspaces } from './schema';
 
 import { db } from './index';
 
@@ -15,16 +15,16 @@ const seed = async () => {
   try {
     // Clear existing data (in reverse order of dependencies)
     console.log('🧹 Clearing existing data...');
-    await db.delete(taskComment);
-    await db.delete(task);
-    await db.delete(workspaceMember);
-    await db.delete(workspace);
-    await db.delete(user);
+    await db.delete(taskComments);
+    await db.delete(tasks);
+    await db.delete(workspaceMembers);
+    await db.delete(workspaces);
+    await db.delete(users);
     console.log('✅ Existing data cleared');
 
     // Create users
     console.log('👤 Creating users...');
-    const users = [
+    const seedUsers = [
       {
         id: nanoid(),
         email: 'alice@example.com',
@@ -51,12 +51,12 @@ const seed = async () => {
       },
     ];
 
-    await db.insert(user).values(users);
-    console.log(`✅ Created ${users.length} users`);
+    await db.insert(users).values(seedUsers);
+    console.log(`✅ Created ${seedUsers.length} users`);
 
     // Create workspaces
     console.log('🏢 Creating workspaces...');
-    const workspaces = [
+    const seedWorkspaces = [
       {
         id: nanoid(),
         name: 'Frontend Team',
@@ -74,12 +74,12 @@ const seed = async () => {
       },
     ];
 
-    await db.insert(workspace).values(workspaces);
-    console.log(`✅ Created ${workspaces.length} workspaces`);
+    await db.insert(workspaces).values(seedWorkspaces);
+    console.log(`✅ Created ${seedWorkspaces.length} workspaces`);
 
     // Create workspace members
     console.log('👥 Creating workspace members...');
-    const members = [
+    const seedMembers = [
       // Frontend Team members
       { userId: users[0].id, workspaceId: workspaces[0].id },
       { userId: users[1].id, workspaceId: workspaces[0].id },
@@ -92,12 +92,12 @@ const seed = async () => {
       { userId: users[3].id, workspaceId: workspaces[2].id },
     ];
 
-    await db.insert(workspaceMember).values(members);
-    console.log(`✅ Created ${members.length} workspace members`);
+    await db.insert(workspaceMembers).values(seedMembers);
+    console.log(`✅ Created ${seedMembers.length} workspace members`);
 
     // Create tasks
     console.log('📝 Creating tasks...');
-    const tasks = [
+    const seedTasks = [
       // Frontend Team tasks
       {
         id: nanoid(),
@@ -199,12 +199,12 @@ const seed = async () => {
       },
     ];
 
-    await db.insert(task).values(tasks);
-    console.log(`✅ Created ${tasks.length} tasks`);
+    await db.insert(tasks).values(seedTasks);
+    console.log(`✅ Created ${seedTasks.length} tasks`);
 
     // Create task comments
     console.log('💬 Creating task comments...');
-    const comments = [
+    const seedComments = [
       {
         id: nanoid(),
         taskId: tasks[1].id,
@@ -243,8 +243,8 @@ const seed = async () => {
       },
     ];
 
-    await db.insert(taskComment).values(comments);
-    console.log(`✅ Created ${comments.length} task comments`);
+    await db.insert(taskComments).values(seedComments);
+    console.log(`✅ Created ${seedComments.length} task comments`);
 
     console.log('🎉 Database seeding completed successfully!');
   } catch (error) {

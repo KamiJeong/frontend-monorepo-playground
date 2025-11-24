@@ -1,16 +1,17 @@
 # @playground/models
 
-Shared Data Transfer Objects (DTOs) and models for the playground monorepo.
+Shared Data Transfer Objects (DTOs), GraphQL types, and models for the playground monorepo.
 
 ## Overview
 
-This package contains all shared DTOs used across the monorepo, including:
-- User DTOs
-- Workspace DTOs
-- Workspace Member DTOs
-- Task DTOs
-- Task Comment DTOs
+This package contains all shared DTOs and GraphQL schemas used across the monorepo, including:
+- User DTOs & GraphQL Types
+- Workspace DTOs & GraphQL Types
+- Workspace Member DTOs & GraphQL Types
+- Task DTOs & GraphQL Types
+- Task Comment DTOs & GraphQL Types
 - Enums (TaskStatus)
+- GraphQL Type Definitions & Generated TypeScript Types
 
 ## Installation
 
@@ -155,10 +156,150 @@ async function bootstrap() {
 bootstrap();
 ```
 
+## GraphQL Usage
+
+This package includes GraphQL schema definitions and automatically generated TypeScript types.
+
+### Import GraphQL Types
+
+```typescript
+// Import generated GraphQL types
+import type {
+  User,
+  Task,
+  Workspace,
+  CreateUserInput,
+  UpdateUserInput,
+  Resolvers,
+  GraphQLContext,
+} from '@playground/models';
+
+// Or import from graphql/types directly
+import type { User, Resolvers } from '@playground/models/graphql/types';
+import type { GraphQLContext } from '@playground/models/graphql/context';
+```
+
+### Import GraphQL Schema Files
+
+```typescript
+// In NestJS GraphQL Module
+import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { join } from 'path';
+
+@Module({
+  imports: [
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      typePaths: [
+        // Import all .graphql schema files
+        join(__dirname, '../../../packages/models/**/*.graphql'),
+      ],
+      // Or use the merged schema
+      // typePaths: [join(__dirname, '../../../packages/models/graphql/schema.graphql')],
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+### Using GraphQL Types in Resolvers (NestJS)
+
+```typescript
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
+import type { User, CreateUserInput, Resolvers } from '@playground/models';
+
+@Resolver('User')
+export class UserResolver {
+  @Query('users')
+  async getUsers(): Promise<User[]> {
+    // Your logic here
+    return [];
+  }
+
+  @Query('user')
+  async getUser(@Args('id') id: string): Promise<User | null> {
+    // Your logic here
+    return null;
+  }
+
+  @Mutation('createUser')
+  async createUser(@Args('input') input: CreateUserInput): Promise<User> {
+    // Your logic here
+    return {} as User;
+  }
+}
+```
+
+### Using GraphQL Types in Next.js (Client)
+
+```typescript
+// In your Next.js app with Apollo Client or urql
+import { gql } from '@apollo/client';
+import type { User, CreateUserInput } from '@playground/models';
+
+const GET_USERS = gql`
+  query GetUsers {
+    users {
+      id
+      name
+      email
+      avatarUrl
+    }
+  }
+`;
+
+const CREATE_USER = gql`
+  mutation CreateUser($input: CreateUserInput!) {
+    createUser(input: $input) {
+      id
+      name
+      email
+    }
+  }
+`;
+
+// TypeScript will validate the types
+function MyComponent() {
+  const { data } = useQuery<{ users: User[] }>(GET_USERS);
+  const [createUser] = useMutation<{ createUser: User }, { input: CreateUserInput }>(CREATE_USER);
+
+  // ...
+}
+```
+
+### Available GraphQL Schemas
+
+- `user/users.graphql` - User types and operations
+- `workspace/workspaces.graphql` - Workspace types and operations
+- `workspace-member/workspace-members.graphql` - Workspace member operations
+- `task/tasks.graphql` - Task types and operations
+- `task-comment/task-comments.graphql` - Task comment types and operations
+- `graphql/schema.graphql` - Merged schema (auto-generated)
+
+### Regenerate GraphQL Types
+
+To regenerate TypeScript types from GraphQL schemas:
+
+```bash
+cd packages/models
+bun run codegen
+```
+
+This will update `graphql/types.ts` and `graphql/schema.graphql`.
+
 ## Dependencies
 
 - `class-validator`: ^0.14.2 - Validation decorators
+- `class-transformer`: ^0.5.1 - Object transformation
 - `reflect-metadata`: ^0.2.2 - Metadata reflection
+- `graphql`: ^16.12.0 - GraphQL implementation
+- `@graphql-codegen/cli`: ^6.1.0 - GraphQL Code Generator (dev)
+- `@graphql-codegen/typescript`: ^5.0.5 - TypeScript types generator (dev)
+- `@graphql-codegen/typescript-resolvers`: ^5.1.3 - Resolver types generator (dev)
+- `@graphql-tools/schema`: ^10.0.29 - GraphQL schema tools
+- `@graphql-tools/merge`: ^9.1.5 - Schema merging utilities
 
 ## Development
 
@@ -170,24 +311,30 @@ This package is part of the monorepo and uses TypeScript. All DTOs are written i
 packages/models/
 ├── enums/
 │   └── task-status.enum.ts
+├── graphql/
+│   ├── context.ts              # GraphQL context type
+│   ├── schema.graphql          # Merged GraphQL schema (generated)
+│   └── types.ts                # Generated TypeScript types
 ├── task/
 │   ├── create-task.dto.ts
 │   ├── update-task.dto.ts
-│   └── delete-task.dto.ts
+│   └── tasks.graphql           # Task GraphQL schema
 ├── task-comment/
 │   ├── create-task-comment.dto.ts
 │   ├── update-task-comment.dto.ts
-│   └── delete-task-comment.dto.ts
+│   └── task-comments.graphql  # Task Comment GraphQL schema
 ├── user/
 │   ├── create-user.dto.ts
 │   ├── update-user.dto.ts
-│   └── delete-user.dto.ts
+│   └── users.graphql           # User GraphQL schema
 ├── workspace/
 │   ├── create-workspace.dto.ts
-│   └── delete-workspace.dto.ts
+│   ├── update-workspace.dto.ts
+│   └── workspaces.graphql      # Workspace GraphQL schema
 ├── workspace-member/
 │   ├── create-workspace-member.dto.ts
-│   └── delete-workspace-member.dto.ts
+│   └── workspace-members.graphql # Workspace Member GraphQL schema
+├── codegen.ts                  # GraphQL Code Generator config
 ├── index.ts
 ├── package.json
 ├── tsconfig.json

@@ -2,14 +2,64 @@
   "name": "@playground/models",
   "version": "0.0.1",
   "private": true,
-  "main": "./index.ts",
-  "types": "./index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist/**"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "tsc -b --watch",
+    "prebuild": "bun run codegen",
+    "build": "tsc -b -v",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "codegen:watch": "graphql-codegen --config codegen.ts --watch",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix"
+  },
   "exports": {
-    ".": "./index.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./graphql": {
+      "import": "./graphql/types.js",
+      "require": "./graphql/types.js",
+      "types": "./graphql/types.ts"
+    },
+    "./graphql/types": {
+      "import": "./graphql/types.js",
+      "require": "./graphql/types.js",
+      "types": "./graphql/types.ts"
+    },
+    "./graphql/context": {
+      "import": "./graphql/context.js",
+      "require": "./graphql/context.js",
+      "types": "./graphql/context.ts"
+    },
+    "./graphql/schema.graphql": "./graphql/schema.graphql",
+    "./*.graphql": "./*/*.graphql",
+    "./*": {
+      "import": "./dist/*.js",
+      "require": "./dist/*.js"
+    }
   },
   "dependencies": {
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
+    "graphql": "^16.12.0",
     "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^6.1.0",
+    "@graphql-codegen/schema-ast": "^5.0.0",
+    "@graphql-codegen/typescript": "^5.0.5",
+    "@graphql-codegen/typescript-resolvers": "^5.1.3",
+    "@graphql-tools/merge": "^9.1.5",
+    "@graphql-tools/schema": "^10.0.29",
+    "@playground/eslint-config": "workspace:*",
+    "typescript": "^5.9.3"
   }
 }

@@ -1,0 +1,37 @@
+type Workspace {
+  id: ID!
+  name: String!
+  createdBy: String!
+  createdByUser: User
+  createdAt: String!
+  members: [WorkspaceMember!]!
+  tasks: [Task!]!
+}
+
+type WorkspaceMember {
+  userId: String!
+  workspaceId: String!
+  user: User
+  workspace: Workspace
+}
+
+input CreateWorkspaceInput {
+  name: String!
+  createdBy: String!
+}
+
+input UpdateWorkspaceInput {
+  name: String
+}
+
+type Query {
+  workspaces(input: PaginationInput): [Workspace!]!
+  workspace(id: ID!): Workspace
+}
+
+type Mutation {
+  createWorkspace(input: CreateWorkspaceInput!): Workspace!
+  updateWorkspace(id: ID!, input: UpdateWorkspaceInput!): Workspace!
+  deleteWorkspace(id: ID!): Boolean!
+}
+

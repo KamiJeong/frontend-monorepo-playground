@@ -1,0 +1,153 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+input CreateTaskCommentInput {
+  content: String!
+  taskId: String!
+  userId: String!
+}
+
+input CreateTaskInput {
+  createdBy: String!
+  description: String
+  status: TaskStatus
+  title: String!
+  workspaceId: String!
+}
+
+input CreateUserInput {
+  avatarUrl: String
+  email: String!
+  name: String
+}
+
+input CreateWorkspaceInput {
+  createdBy: String!
+  name: String!
+}
+
+input CreateWorkspaceMemberInput {
+  userId: String!
+  workspaceId: String!
+}
+
+type Mutation {
+  addWorkspaceMember(input: CreateWorkspaceMemberInput!): WorkspaceMember!
+  createTask(input: CreateTaskInput!): Task!
+  createTaskComment(input: CreateTaskCommentInput!): TaskComment!
+  createUser(input: CreateUserInput!): User!
+  createWorkspace(input: CreateWorkspaceInput!): Workspace!
+  deleteTask(id: ID!): Boolean!
+  deleteTaskComment(id: ID!): Boolean!
+  deleteUser(id: ID!): Boolean!
+  deleteWorkspace(id: ID!): Boolean!
+  removeWorkspaceMember(userId: String!, workspaceId: String!): Boolean!
+  updateTask(id: ID!, input: UpdateTaskInput!): Task!
+  updateTaskComment(id: ID!, input: UpdateTaskCommentInput!): TaskComment!
+  updateUser(id: ID!, input: UpdateUserInput!): User!
+  updateWorkspace(id: ID!, input: UpdateWorkspaceInput!): Workspace!
+}
+
+input PaginationInput {
+  limit: Int = 10
+  page: Int = 1
+}
+
+type PaginationMeta {
+  hasNext: Boolean!
+  hasPrevious: Boolean!
+  limit: Int!
+  page: Int!
+  totalCount: Int!
+  totalPages: Int!
+}
+
+type Query {
+  task(id: ID!): Task
+  taskComment(id: ID!): TaskComment
+  taskComments(input: PaginationInput, taskId: String!): [TaskComment!]!
+  tasks(input: PaginationInput, workspaceId: String): [Task!]!
+  user(id: ID!): User
+  users(input: PaginationInput): [User!]!
+  workspace(id: ID!): Workspace
+  workspaceMembers(input: PaginationInput, workspaceId: String!): [WorkspaceMember!]!
+  workspaces(input: PaginationInput): [Workspace!]!
+}
+
+type Task {
+  comments: [TaskComment!]!
+  createdAt: String!
+  createdBy: String
+  createdByUser: User
+  description: String
+  id: ID!
+  status: TaskStatus
+  title: String!
+  updatedAt: String!
+  workspace: Workspace
+  workspaceId: String!
+}
+
+type TaskComment {
+  content: String!
+  createdAt: String!
+  id: ID!
+  task: Task
+  taskId: String!
+  user: User
+  userId: String!
+}
+
+enum TaskStatus {
+  DONE
+  IN_PROGRESS
+  TODO
+}
+
+input UpdateTaskCommentInput {
+  content: String!
+}
+
+input UpdateTaskInput {
+  description: String
+  status: TaskStatus
+  title: String
+}
+
+input UpdateUserInput {
+  avatarUrl: String
+  name: String
+}
+
+input UpdateWorkspaceInput {
+  name: String
+}
+
+type User {
+  avatarUrl: String
+  createdAt: String!
+  email: String!
+  id: ID!
+  name: String
+  tasks: [Task!]!
+  workspaces: [Workspace!]!
+}
+
+type Workspace {
+  createdAt: String!
+  createdBy: String!
+  createdByUser: User
+  id: ID!
+  members: [WorkspaceMember!]!
+  name: String!
+  tasks: [Task!]!
+}
+
+type WorkspaceMember {
+  user: User
+  userId: String!
+  workspace: Workspace
+  workspaceId: String!
+}

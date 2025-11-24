@@ -1,0 +1,31 @@
+type User {
+  id: ID!
+  name: String
+  email: String!
+  avatarUrl: String
+  createdAt: String!
+  workspaces: [Workspace!]!
+  tasks: [Task!]!
+}
+
+input CreateUserInput {
+  email: String!
+  name: String
+  avatarUrl: String
+}
+
+input UpdateUserInput {
+  name: String
+  avatarUrl: String
+}
+
+type Query {
+  users(input: PaginationInput): [User!]!
+  user(id: ID!): User
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: ID!, input: UpdateUserInput!): User!
+  deleteUser(id: ID!): Boolean!
+}

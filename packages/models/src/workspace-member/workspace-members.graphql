@@ -1,0 +1,14 @@
+input CreateWorkspaceMemberInput {
+  userId: String!
+  workspaceId: String!
+}
+
+type Query {
+  workspaceMembers(workspaceId: String!, input: PaginationInput): [WorkspaceMember!]!
+}
+
+type Mutation {
+  addWorkspaceMember(input: CreateWorkspaceMemberInput!): WorkspaceMember!
+  removeWorkspaceMember(userId: String!, workspaceId: String!): Boolean!
+}
+

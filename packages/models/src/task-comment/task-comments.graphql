@@ -1,0 +1,31 @@
+type TaskComment {
+  id: ID!
+  taskId: String!
+  task: Task
+  userId: String!
+  user: User
+  content: String!
+  createdAt: String!
+}
+
+input CreateTaskCommentInput {
+  taskId: String!
+  userId: String!
+  content: String!
+}
+
+input UpdateTaskCommentInput {
+  content: String!
+}
+
+type Query {
+  taskComments(taskId: String!, input: PaginationInput): [TaskComment!]!
+  taskComment(id: ID!): TaskComment
+}
+
+type Mutation {
+  createTaskComment(input: CreateTaskCommentInput!): TaskComment!
+  updateTaskComment(id: ID!, input: UpdateTaskCommentInput!): TaskComment!
+  deleteTaskComment(id: ID!): Boolean!
+}
+

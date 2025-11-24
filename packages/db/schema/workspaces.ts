@@ -19,7 +19,7 @@ export const workspaces = pgTable('workspaces', {
 export const workspacesRelations = relations(workspaces, ({ one, many }) => ({
   members: many(workspaceMembers),
   tasks: many(tasks),
-  user: one(users, {
+  createdByUser: one(users, {
     fields: [workspaces.createdBy],
     references: [users.id],
   }),

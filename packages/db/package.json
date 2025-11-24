@@ -1,18 +1,18 @@
 {
   "name": "@playground/db",
   "version": "0.0.0",
-  "main": "./index.ts",
-  "types": "./index.ts",
-  "exports": {
-    ".": "./index.ts"
-  },
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "db:push": "npx drizzle-kit push",
     "db:generate": "npx drizzle-kit generate",
     "db:migrations": "npx drizzle-kit migrate",
-    "db:seed": "tsx seed.ts"
+    "db:seed": "tsx seed.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput"
   },
   "dependencies": {
     "dotenv": "^17.2.3",

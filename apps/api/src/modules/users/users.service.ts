@@ -6,12 +6,33 @@ import { db, users } from '@playground/db';
 import {
   createPaginationResponse,
   CreateUserDto,
-  PaginationDto,
   UpdateUserDto,
+  UserQueryDto,
 } from '@playground/models';
+
+import { buildUserFilter, buildUserSort, decodeUserCursor } from './users.util';
 
 @Injectable()
 export class UsersService {
+  async getUsersByCursor(trx, cursor: string | undefined, limit: number, sort: any[]) {
+    if (!cursor) {
+      return trx.query.users.findMany({
+        limit,
+        orderBy: [...orderBy],
+        with: { workspaces: true },
+      });
+    }
+
+    const decoded = decodeUserCursor(cursor);
+
+    return trx
+      .select()
+      .from(users)
+      .where(sql`(created_at, id) < (${decoded.createdAt}, ${decoded.id})`)
+      .orderBy(desc(users.createdAt), desc(users.id))
+      .limit(limit);
+  }
+
   async create(createUserDto: CreateUserDto) {
     const newUser = await db
       .insert(users)
@@ -26,8 +47,17 @@ export class UsersService {
     return newUser[0];
   }
 
-  async findAll(pagination: PaginationDto) {
+  async findAll(query: UserQueryDto) {
     return await db.transaction(async (trx) => {
+      const filter = buildUserFilter(query.filter);
+      const sort = buildUserSort(query.sort);
+
+      let cursor = query.cursor;
+
+      if (!cursor && query.page && query.page > 1) {
+        cursor = j;
+      }
+
       const countResponse = await trx.select({ count: count() }).from(users);
       const list = await trx.query.users.findMany({
         with: { workspaces: true },

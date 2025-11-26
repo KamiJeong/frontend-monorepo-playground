@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer';
-import { IsInt, IsOptional, IsString, Max, Min } from 'class-validator';
+import { IsEnum, IsInt, IsOptional, IsString, Max, Min } from 'class-validator';
 
-import { PaginationDefault } from '../enums/pagination-default.enum';
+import { PaginationDefault, PaginationDirection } from '../enums/pagination-default.enum';
 
 export class PaginationDto {
   @Type(() => Number)
@@ -20,6 +20,10 @@ export class PaginationDto {
   @IsString()
   @IsOptional()
   cursor?: string;
+
+  @IsEnum(PaginationDirection)
+  @IsOptional()
+  direction?: string = PaginationDefault.DIRECTION;
 
   get offset(): number {
     return ((this.page ?? PaginationDefault.PAGE) - 1) * (this.limit ?? PaginationDefault.LIMIT);
